@@ -90,7 +90,13 @@ class Cart {
 		// replace with the for loop
 		let result = '<tr><td>Name</td><td>Price</td><td>Quantity</td><td><button class="delete-button" data-id="0">Delete</button></td></tr>';
 		return result;
-    }
+        
+          
+          
+}
+
+
+    
     /**
      * Class CartItem {
      *   String name;
