@@ -56,14 +56,9 @@ class Cart {
 
     // remove an item from shopping cart
     removeItem (item) {
-        var rev = this.store.cartItems;
-        rev = rev.filter(a => a !== rev[item]);
-        console.log(rev);
-        this.store.cartItems = rev;
-        this.render();
         // TODO: logic to remove an item from cart
         // call render method when the item is removed to update view
-        
+        this.render();
     }
 
     placeOrder () {
@@ -80,8 +75,8 @@ class Cart {
         for (var i = 0; i < deleteButtons.length; i ++) {
         	let deleteBtn = deleteButtons[i];
 			deleteBtn.addEventListener('click', () => {
-        		
-                this.removeItem(deleteBtn.dataset.id)
+        		debugger;
+				alert('You are deleting' + deleteBtn);
 			});
         }
     }
@@ -94,9 +89,8 @@ class Cart {
     renderListAsHTML(list) {
 		// replace with the for loop
 		//let result = '<tr><td>Name</td><td>Price</td><td>Quantity</td><td><button class="delete-button" data-id="0">Delete</button></td></tr>';
-		var result = "";
-        for(var i =0; i<list.length;i++){
-            result+= '<tr><td>'+list[i].name+'</td>' + '<td>'+list[i].price +'</td>'+'<td></td>' +'<td><button class="delete-button" data-id="$[i]">Delete</button></td></tr>'
+		for(var i =0; i<list.length;i++){
+            result+= '<tr><td>'+list[i].name + '<tr><td>'+list[i].price +'<td><button class="delete-button" data-id="0">Delete</button></td></tr>'
         }
         return result;
         
@@ -209,3 +203,62 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+class Inventory {
+    constructor(root, store) {
+        this.root = root;
+        this.store = store;
+        this.init();
+    }
+
+    init () {
+        this.render();
+        // TODO: attach event listeners like click to remove items after rendering
+    }
+
+    destroy () {
+        // TODO: remove event listeners added from the init above
+    }
+
+    removeItem (itemName) {
+        // TODO: function to remove item given item name from store
+    }
+
+    render () {
+        // using innerHTML to render inventory listing
+    }
+}
+
+class Menu {
+    constructor(root, store) {
+        this.root = root;
+        this.store = store;
+        this.init();
+    }
+
+    init () {
+        this.render();
+    }
+
+    render () {
+        // TODO: render a list of food menu from store using innerHTML
+    }
+}
+
+class CreateFood {
+    constructor(root, store) {
+        this.root = root; // root should be the container of the form itself
+        this.store = store;
+        this.init();
+    }
+
+    init () {
+        // attach click event to create button
+        this.root.addEventListener('click', this.onClick);
+    }
+
+    createFood () {
+        // will need to do querySelector to find out every single form element
+        // to get their values before creating a new food
+        // after creating a new food item, add it to store
+    }
+}
