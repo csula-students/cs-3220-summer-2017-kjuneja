@@ -220,13 +220,36 @@ class Inventory {
     }
 
     removeItem (itemName) {
+        console.log(this.root.dataset);
+        items.remove({
+            name:this.root.dataset.name,
+            price:this.root.dataset.price
+        });
+        console.log(items);
+        this.store.items=items;
         // TODO: function to remove item given item name from store
     }
 
     render () {
         // using innerHTML to render inventory listing
+        var inventory = this.store.inventory;
+        for(var i=0; i<inventory.length;i++){
+            console.log(inventory[i]);
+        }
+        let table = this.root.querySelector('table');
+        table.innerHTML = this.getFood(inventory);
     }
+    getFood(list){
+        var result = "";
+    for(var i =0; i<list.length;i++){
+            result+= '<tr><td>'+list[i].name + '<tr><td>'+list[i].price +'<td><button class="delete-button" data-id="0">Delete</button></td></tr>'
+        }
+        return result;
+        
+
 }
+}
+
 
 class Menu {
     constructor(root, store) {
@@ -240,6 +263,12 @@ class Menu {
     }
 
     render () {
+        var cartItems = this.cartItems;
+        for (var i =0; i<cartItems.length; i++){
+            console.log(cartItems[i]);
+        }
+        let tbody = this.root.querySelector('tbody');
+        tbody.innerHTML= this.getFood(cartItems);
         // TODO: render a list of food menu from store using innerHTML
     }
 }
@@ -260,5 +289,9 @@ class CreateFood {
         // will need to do querySelector to find out every single form element
         // to get their values before creating a new food
         // after creating a new food item, add it to store
+          this.root.querySelector('.FoodName');
+          this.root.querySelector('.Price');
+          this.root.querySelector('.ImgLink');
+
     }
 }
