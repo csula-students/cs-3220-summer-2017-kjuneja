@@ -1,0 +1,46 @@
+package lab3;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class FoodItemListAdminServlet
+ */
+@WebServlet("/admin/foods/")
+public class FoodItemListAdminServlet extends HttpServlet {
+	public void init() {
+		
+		List<FoodItem> fooditems = new ArrayList<>();
+		fooditems.add(new FoodItem(fooditems.size(), "Hamburger","https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwj3rMuIl_XUAhUUS2MKHZX5BRsQjRwIBw&url=http%3A%2F%2Fwww.epicurious.com%2Frecipes%2Ffood%2Fviews%2Fthe-ultimate-hamburger-232191&psig=AFQjCNEJG2Nhmy1MpSshaYbfbtSZykhw6g&ust=1499448491376603", "Hamburgers are often served with cheese, lettuce, tomato, bacon, onion, pickles, or chiles.", 3.45));
+		fooditems.add(new FoodItem(fooditems.size(), "Chiili Cheese Fries", "http://images.media-allrecipes.com/userphotos/560x315/495404.jpg","Smothered in chili and cheddar cheese sauce, these easy chili cheese fries are a complete meal in themselves.",3.75));
+		getServletContext().setAttribute("fooditems", fooditems);
+	}
+    public FoodItemListAdminServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
