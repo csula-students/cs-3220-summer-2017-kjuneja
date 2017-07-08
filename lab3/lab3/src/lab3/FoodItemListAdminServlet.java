@@ -1,6 +1,10 @@
 package lab3;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,13 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class FoodItemListAdminServlet
  */
-@WebServlet("/FoodItemListAdminServlet")
+@WebServlet("/admin/foods/")
 public class FoodItemListAdminServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+	public void init() {
+		
+		List<FoodItem> fooditems = new ArrayList<>();
+		fooditems.add(new FoodItem(fooditems.size(), "Hamburger","Hamburgers are often served with cheese, lettuce, tomato, bacon, onion, pickles, or chiles.","http://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/pass/the-ultimate-hamburger.jpg", "$3.45"));
+		fooditems.add(new FoodItem(fooditems.size(), "Chiili Cheese Fries","Smothered in chili and cheddar cheese sauce, these easy chili cheese fries are a complete meal in themselves.","http://images.media-allrecipes.com/userphotos/560x315/495404.jpg","$3.75"));
+		getServletContext().setAttribute("fooditems", fooditems);
+	}
     public FoodItemListAdminServlet() {
         super();
         // TODO Auto-generated constructor stub
@@ -26,9 +32,33 @@ public class FoodItemListAdminServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		List<FoodItem> fooditems = (List<FoodItem>) getServletContext().getAttribute("fooditems");
+		out.println("<head>");
+		out.println("<style>body { " +
+		"}</style>");
+		out.println("</head>");
+
+		out.println("<h1> Food Lovers Resturant </h1>");
+		out.println("<table>");
+		for (FoodItem entry: fooditems) {
+			out.println(
+				"<tr>" + 
+					"<td>" +"Name: "+ entry.getName() + "  </td>" + 
+						"</tr>"+ "<tr>"+
+					"<td>" +"Description: "+ entry.getDescription() + "</td>" +"</tr>"+
+						"<tr>"+"<td>"+"Image URL: "+entry.getImageurl()+"</td>" +"</tr>"+
+						"<tr>"+"<td>"+"Price: "+entry.getPrice()+"</td>" +"</tr>"+
+					"<td><a href='/cs3220xstu12/admin/foods/edit?id=" + entry.getId() + "'>Edit</a> " + 
+					
+				"</tr>"
+			);
+		}
+		out.println("</table>");
+		out.println("<a href='/cs3220xstu12/admin/foods/create'>Add New Food</a>");
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

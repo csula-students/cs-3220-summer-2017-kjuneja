@@ -1,0 +1,47 @@
+package lab3;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class CreateFoodAdminServlet
+ */
+@WebServlet("/admin/foods/create")
+public class CreateFoodAdminServlet extends HttpServlet {
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<FoodItem> fooditems = (List<FoodItem>) getServletContext().getAttribute("fooditems");
+		fooditems.add(new FoodItem(fooditems.size(), request.getParameter("name"), request.getParameter("description"),request.getParameter("imageurl"),request.getParameter("price")));
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.println("<form method=\"post\">");
+		out.println("<h1>Create New Food</h1>");
+		out.println("Food Name: <input name='name' type='text'/></br>");
+		out.println("Description: <textarea name='description'></textarea></br>");
+		out.println("Image URL: <input name='imageurl' type='text'/></br>");
+		out.println("Price: <input price='price' type='text'/></br>");
+		out.println("<button>Add</button>");
+		out.println("</form>");
+		System.out.println(fooditems);
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		@SuppressWarnings("unchecked")
+		List<FoodItem> fooditems = (List<FoodItem>) getServletContext().getAttribute("fooditems");
+		fooditems.add(new FoodItem(fooditems.size(), request.getParameter("name"), request.getParameter("description"),request.getParameter("imageurl"),request.getParameter("price")));
+		getServletContext().setAttribute("fooditems", fooditems);
+		PrintWriter out = response.getWriter();
+		out.println("<a href='/lab3/admin/foods/'>Go back to Food Item List </a>");
+		
+	}
+
+}
