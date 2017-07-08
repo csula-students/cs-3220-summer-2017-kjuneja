@@ -1,0 +1,36 @@
+
+header{
+	width: *;
+	height: 250 px;
+background-color: #DAF7A6;
+display: flex;	
+}
+h1{
+	flex:5;
+	order:2;
+text-align: center;
+font-size: 80px;
+font-style: italic;
+color: #F50B07;
+}
+table{
+	width: 40%;
+
+}
+button{
+    align:center;
+}
+label{
+    flex:5;
+	order:2;
+    font-size: 20px;
+
+}
+main{
+    background-color: yellow;
+}
+button{
+font-size: 15px;
+}
+
+

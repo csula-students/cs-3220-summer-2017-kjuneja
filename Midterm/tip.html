@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<title>Tip Calculator </title>
+</head>
+<body >
+    <header>
+        <link rel = "stylesheet" type="text/css" href = "tip.css"/>
+        <h1> Tip Calculator</h1>
+    </header>
+    <main>
+        <form id="tipcalculator">
+        <table align="center" >
+            
+        <tr>
+        
+        
+<td><label for Bill> Bill: </label></td>
+<td><label for Tip>Tip: </label></td>
+    
+</tr>
+
+<tr>
+<td><input type="text" name="bill" id="bill" style="width: 300px; height: 25px" /></td>
+ <td><span id="tip"></span></td>
+        
+        
+</tr>      
+<tr>
+        
+<td><label for Tip%> Tip %: </label></td>
+<td><label for Total>Total: </label></td>
+    
+</tr> 
+<tr>
+<td><input type="text" name="tip" id="percenttip" style="width: 300px; height: 25px" /></td>
+<td><span id="total"></span></td>
+</tr>
+        </table>
+
+       <button id = "button" type="button" style="background-color:red;margin-left:auto;margin-right:auto;display:block;margin-top:4%;margin-bottom:30%; width:150px" onclick="calc()"> Calculate Tip</button>
+    </form>
+    </main>
+    
+    <script src="tip.js"></script>
+</body>
+</html>
