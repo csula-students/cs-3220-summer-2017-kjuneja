@@ -1,0 +1,70 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+         <%@ taglib prefix= "tag" uri="WEB-INF/admin-header.tld" %>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
+<html>
+<head>
+
+<link rel="stylesheet" href="app.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<tag:Aheader/>
+<body>
+ 
+<section> 
+
+<form name = "Create New Food" id = "NewFood Form" method="post">  
+
+<fieldset> 
+
+
+    <h4>Add New Food</h4>
+
+
+
+<table>
+<tr>
+        
+<td><label for FoodName> Name </label></td>
+<td><label for Price>Price </label></td>
+    
+</tr>
+
+<tr>
+<td><input type="text" name="FoodName" id="name" style="width: 300px; height: 25px" /></td>
+<td><input type="text" name="Price" id="price"style="width: 300px; height: 20px"/></td>
+
+</tr>
+
+<tr>
+<td><label for ImgLink> Image Link </label></td>
+</tr>
+<tr>
+<td><input type="text" name="ImgLink" id="ImgLink" style="width: 300px; height: 25px" /> </td>
+</tr>
+<tr>
+<td><label for Dsc> Description </label></td>
+</tr>
+<tr>
+<td><textarea name="message" rows="10" cols="30">
+Add a Description
+</textarea></td>
+</tr>
+<tr>
+<td><button id="AddFood"style="width: 200px; height: 25px;" align= "right;">      Add Food</button></td>
+ 
+  
+</table>
+</fieldset>
+</form>
+</section>
+
+
+    <footer>
+			<h5> © 2017 Kunal's Place. All rights reserved!!!</h5>
+		</footer>
+		 
+	</body>
+	</html>

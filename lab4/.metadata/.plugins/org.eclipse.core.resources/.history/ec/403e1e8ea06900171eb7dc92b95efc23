@@ -1,0 +1,8 @@
+
+ 
+    <tag>
+       <name>AdminHeader</name>
+       <tag-class>lab4.AdminHeader</tag-class>
+       <body-content>empty</body-content>
+    </tag>
+ 
