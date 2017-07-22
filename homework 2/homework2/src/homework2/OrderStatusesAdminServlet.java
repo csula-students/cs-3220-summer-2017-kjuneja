@@ -3,6 +3,7 @@ package homework2;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -19,8 +20,8 @@ public class OrderStatusesAdminServlet extends HttpServlet {
 public void init() {
 		
 		List<Order> orders = new ArrayList<>();
-		orders.add(new Order(orders.size(), "Hamburger", "Kunal",null));
-		orders.add(new Order(orders.size(), "Chilli Cheese Fries", "Michael",null));
+		orders.add(new Order(orders.size(), "Hamburger", "Kunal",new Date()));
+		orders.add(new Order(orders.size(), "Chilli Cheese Fries", "Michael",new Date()));
 		getServletContext().setAttribute("orders", orders);
 	}
 
@@ -44,7 +45,7 @@ public void init() {
 					"<td> Created </td>"+"<td> Item </td>"+"<td> Action </td>" +"</tr>" + "</thead>");
 		for (Order entry: orders) {
 			out.println(
-						"<tr>" + "<td>"+entry.getCreated() + "</td>" +"<td>" + entry.getItems() + "</td>" + "<td><a href='/adim/order/edit?id=" + entry.getId() + "'>Edit</a> "+ "</td>" +
+						"<tr>" + "<td>"+entry.getCreated() + "</td>" +"<td>" + entry.getItems() + "</td>" + "<td><a href='/homework2/adim/order/edit?id=" + entry.getId() + "'>Edit</a> "+ "</td>" +
  					
 					
 				"</tr>"

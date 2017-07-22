@@ -3,6 +3,7 @@ package homework2;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -19,8 +20,8 @@ public class OrderStatusesServlet extends HttpServlet {
 	public void init() {
 		
 		List<Order> orders = new ArrayList<>();
-		orders.add(new Order(orders.size(), "Hamburger", "Kunal",null));
-		orders.add(new Order(orders.size(), "Chilli Cheese Fries", "Michael",null));
+		orders.add(new Order(orders.size(), "Hamburger", "Kunal",new Date()));
+		orders.add(new Order(orders.size(), "Chilli Cheese Fries", "Michael",new Date()));
 		getServletContext().setAttribute("orders", orders);
 	}
 	
@@ -40,7 +41,7 @@ public class OrderStatusesServlet extends HttpServlet {
 					"<td> Created </td>"+"<td> Item </td>"+"<td> Customer </td>"+"<td> Status </td>" +"</tr>" + "</thead>");
 		for (Order entry: orders) {
 			out.println(
-						"<tr>" + "<td>"+entry.getCreated() + "</td>" +"<td>" + entry.getItems() + "</td>" + "<td>" +entry.getCustname() + "</td>" + "<td>" +""+"</td>"+
+						"<tr>" + "<td>"+entry.getCreated() + "</td>" +"<td>" + entry.getItems() + "</td>" + "<td>" +entry.getCustname() + "</td>" + "<td>" +entry.getinprogressStatus()+"</td>"+
  					
 					
 				"</tr>"

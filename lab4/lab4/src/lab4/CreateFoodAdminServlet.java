@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class CreateFoodAdminServlet
  */
-@WebServlet("/admin/foods/create")
+@WebServlet("/admin/foods/create1")
 public class CreateFoodAdminServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

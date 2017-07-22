@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class FoodItemListAdminServlet
  */
-@WebServlet("/admin/foods/")
+@WebServlet("/admin/foods1/")
 public class FoodItemListAdminServlet extends HttpServlet {
 	public void init() {
 		
