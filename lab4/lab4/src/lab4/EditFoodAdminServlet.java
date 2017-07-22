@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/admin/foods/edit")
+@WebServlet("/admin/foods/edit1")
 public class EditFoodAdminServlet extends HttpServlet {
 	
 

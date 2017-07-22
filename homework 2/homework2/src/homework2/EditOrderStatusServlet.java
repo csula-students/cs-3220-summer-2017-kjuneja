@@ -1,6 +1,10 @@
 package homework2;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Date;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,16 +30,59 @@ public class EditOrderStatusServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int id = Integer.parseInt(request.getParameter("id"));
+		List<Order> orders = (List<Order>) getServletContext().getAttribute("orders");
+		Order leEntry = null;
+		for (Order entry: orders) {
+			if (entry.getId() == id) {
+				leEntry = entry;
+			}
+		}
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.println("<h1>Editing Order Statuses</h1>");
+		out.println("<form method=\"post\">");
+		out.println("Created: " + leEntry.getCreated() + "'/></br>");
+		out.println("Item:" + leEntry.getItems() + "</br>");
+		out.println("Customer: " + leEntry.getCustname() + "'/></br>");
+		out.println("Status: <input name='status' type='option'" + leEntry.getcompletedstatus() + "'/></br>");
+		out.println("<button>Edit</button>");
+		out.println("</form>");
 	}
+
+		
+		
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		int id = Integer.parseInt(request.getParameter("id"));
+		List<Order> orders = (List<Order>) getServletContext().getAttribute("orders");
+		Order leEntry = null;
+		int index = -1;
+		for (int i = 0; i < orders.size(); i ++) {
+			if (orders.get(i).getId() == id) {
+				leEntry = orders.get(i);
+				index = i;
+			}
+		}
+		
+		orders.set(index, new Order(
+				leEntry.getId(),
+				request.getParameter("items"),
+				request.getParameter("custname"),
+				new Date(index)
+				
+				
+			));
+		getServletContext().setAttribute("orders", orders);
+		response.sendRedirect("/cs3220xstu12/admin/orders");
+		
+
+
+	}
 	}
 
-}
+
