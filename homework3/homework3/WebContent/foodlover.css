@@ -1,0 +1,147 @@
+@CHARSET "UTF-8";
+header{
+	width: *;
+	height: 250 px;
+background-color: #DAF7A6;
+display: flex;	
+}
+header .pic{
+	flex:1;
+	order:1;
+	width:150px;
+	height:150px;
+
+}
+ h1{
+	flex:5;
+	order:2;
+text-align: center;
+font-size: 180px
+font-style: italic;
+color: #F50B07;
+}
+h3{
+	flex:15;
+	order:32;
+text-align: center;
+font-size: 500px
+font-style: italic;
+color: #A81027;
+}
+header nav{
+	flex:2;
+	order:3;
+	text-align: right;
+	font-size:30px;
+
+}
+main{
+	width: *;
+	height: 700px;
+	background-color: #07F5E3;
+
+
+}
+footer{
+width: *;
+	height: 50px;
+	background-color: #DAF7A6;
+}
+
+footer h5{
+
+	font-style: italic;
+	text-align: left;
+	font-size: 15px;
+	color:#A81027;
+}
+.items{
+	
+	text-align: left;
+	
+}
+table{
+	width: 100%;
+}
+ 
+th,td{
+	border: 1px solid #999;
+  padding: 0.5rem;
+  text-align:left;
+} 
+
+
+	
+
+
+
+
+.submit{ 
+background-color:green;
+    border: black;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+h6{
+	flex:5;
+	order:2;
+text-align: center;
+font-size: 50px
+font-style: italic;
+color: #F50B07;
+}
+
+
+section { 
+
+margin: 70px 5% 20px 5%; 
+
+background-color: #F5F5DC; 
+
+padding: 3%; 
+
+} 
+
+label { 
+
+
+
+font-size: 110%; 
+
+font-weight: 800; 
+
+} 
+h4{ font-size: 200%;
+
+}
+
+form { 
+
+width: 90%; 
+
+margin-left: auto; 
+
+margin-right: auto; 
+
+
+
+} 
+
+body { 
+
+background-color: #FBFBEF; 
+
+background-size: 100%; 
+
+background-attachment: fixed; 
+
+} 
+textarea {
+    overflow-y: scroll;
+    height: 100px;
+    resize: none; 
+}
