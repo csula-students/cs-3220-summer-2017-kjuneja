@@ -1,0 +1,6 @@
+1501461419002	Rename type 'MenuServlet'
+1501463039991	Move 'AdminCreate-food.jsp' to 'JDBC'
+1501463043419	Move 'AdminInventary.jsp' to 'JDBC'
+1501463046389	Move 'foodlover.css' to 'JDBC'
+1501463049266	Move 'index.jsp' to 'JDBC'
+1501463053591	Move 'foodlover.css' to 'WEB-INF'
