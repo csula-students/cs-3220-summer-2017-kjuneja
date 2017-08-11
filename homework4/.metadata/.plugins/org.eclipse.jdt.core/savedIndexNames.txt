@@ -33,7 +33,6 @@ INDEX VERSION 1.130+/Users/kunaljuneja/Desktop/cs-3220-summer-2017-kjuneja/homew
 3334288320.index
 776625729.index
 3579143131.index
-3649778465.index
 431655068.index
 1384487945.index
 215453209.index
