@@ -36,11 +36,11 @@ public class OrderDAO implements DAO<Order> {
 	            ResultSet rs = stmt.executeQuery("SELECT * FROM orders");
 	            while (rs.next()) {
 	                list.add(new Order(
-	                    rs.getInt("order_id"),
-	                    rs.getString("item_img"),
-	                    rs.getString("castomer_name"),
+	                    rs.getInt("id"),
+	                    rs.getString("items"),
+	                    rs.getString("custname"),
 	                    rs.getDate ("created"),
-	                    rs.getString("statuse")
+	                    rs.getString("status")
 	                ));
 	            }
 	        } catch (SQLException e) {
