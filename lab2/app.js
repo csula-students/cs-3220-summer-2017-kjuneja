@@ -56,9 +56,14 @@ class Cart {
 
     // remove an item from shopping cart
     removeItem (item) {
+        var rev = this.store.cartItems;
+        rev = rev.filter(a => a !== rev[item]);
+        console.log(rev);
+        this.store.cartItems = rev;
+        this.render();
         // TODO: logic to remove an item from cart
         // call render method when the item is removed to update view
-        this.render();
+        
     }
 
     placeOrder () {
@@ -75,8 +80,8 @@ class Cart {
         for (var i = 0; i < deleteButtons.length; i ++) {
         	let deleteBtn = deleteButtons[i];
 			deleteBtn.addEventListener('click', () => {
-        		debugger;
-				alert('You are deleting' + deleteBtn);
+        		
+                this.removeItem(deleteBtn.dataset.id)
 			});
         }
     }
@@ -88,8 +93,12 @@ class Cart {
 	 */
     renderListAsHTML(list) {
 		// replace with the for loop
-		let result = '<tr><td>Name</td><td>Price</td><td>Quantity</td><td><button class="delete-button" data-id="0">Delete</button></td></tr>';
-		return result;
+		//let result = '<tr><td>Name</td><td>Price</td><td>Quantity</td><td><button class="delete-button" data-id="0">Delete</button></td></tr>';
+		var result = "";
+        for(var i =0; i<list.length;i++){
+            result+= '<tr><td>'+list[i].name+'</td>' + '<td>'+list[i].price +'</td>'+'<td></td>' +'<td><button class="delete-button" data-id="$[i]">Delete</button></td></tr>'
+        }
+        return result;
         
           
           
